@@ -1,0 +1,44 @@
+package unicesumar.segundoBimestre;
+
+import java.util.ArrayList;
+
+public class Curso {
+
+	private String nomeCurso;
+	
+	// -- Uma associação 0..n para 0..n bidirecional.
+	private ArrayList<Professor> professorArrayList = new ArrayList();
+	
+	public Curso(String nomeCurso) {
+		
+		this.nomeCurso = nomeCurso;
+	}
+	
+	// No decorrer do tempo, existe a possiblidade de abrir novos cursos ou até mesmo a remoção do mesmo...
+	public void setNomeCurso(String nomeCurso) { 
+		
+		this.nomeCurso = nomeCurso;
+	}
+	
+	public String getNomeCurso() {
+		
+		return nomeCurso;
+	}
+	// ----------------------
+	
+	public void addProfessorC(Professor pc) {
+		
+		if(!this.professorArrayList.contains(pc)) {
+			
+			this.professorArrayList.add(pc);
+			pc.addCursoC(this);
+		}
+		return;
+	}
+	
+	public ArrayList<Professor> getProfessorC(){
+		
+		return professorArrayList;
+	}
+	
+}
