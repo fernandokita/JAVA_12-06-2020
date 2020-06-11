@@ -1,0 +1,30 @@
+package unicesumar.segundoBimestre;
+
+public class Boleto {
+
+	private double mensalidade;
+
+	// - Uma associação 1 para 0..1 bidirecional.
+	private Aluno aluno;
+
+	public Boleto(double mensalidade, Aluno aluno) {
+
+		this.mensalidade = mensalidade;
+		this.aluno = aluno;
+	}
+
+	public void setMensalidade(double mensalidade) {   // A mensalidade pode sofrer alterações de valor...
+
+		this.mensalidade = mensalidade;
+	}
+
+	public double getMensalidade() {
+
+		return this.mensalidade;
+	}
+
+	public Aluno getAluno() {
+
+		return this.aluno;
+	}
+}
