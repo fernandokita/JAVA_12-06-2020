@@ -1,0 +1,61 @@
+package unicesumar.segundoBimestre;
+
+import java.util.ArrayList;
+
+public class Professor {
+
+	private String nomeProfessor;
+
+	// - Uma associação 1 para 1..* unidirecional.
+	private ArrayList<Disciplina> disciplinaList = new ArrayList<Disciplina>();
+	
+	// - Uma associação 0..n para 0..n bidirecional.
+	private ArrayList<Curso> cursoArrayList = new ArrayList();
+
+	//-----------------------------------------------------------------------------------
+	
+	// Constructor..
+	public Professor(String nomeProfessor, ArrayList<Disciplina> disciplinaList) {
+
+		this.nomeProfessor = nomeProfessor;
+		
+		if(this.disciplinaList == null) {
+			
+			throw new RuntimeException("No mínimo, os professores colaboram com 1 materia !");
+		}
+	}
+
+	public String getProfessor() {
+
+		return this.nomeProfessor;
+	}
+	
+	// Associação 1 para 1..* unidirecional. Métodos.
+	public void addDisciplina(Disciplina d) {
+
+			this.disciplinaList.add(d);
+	}
+
+	public ArrayList<Disciplina> getDisciplina() {
+
+		return this.disciplinaList;
+	}
+	//--------------------------------------------------------------------------
+	
+	// Associação 0..n para 0..n bidirecional. Métodos.
+	public void addCursoC(Curso cp) {
+		
+		if(!this.cursoArrayList.contains(cp)) {
+			
+			this.cursoArrayList.add(cp);
+			cp.addProfessorC(this);
+		}
+		return;
+	}
+	
+	public ArrayList<Curso> getCursoC(){
+		
+		return cursoArrayList;
+	}
+	//--------------------------------------------------------------------------
+}
