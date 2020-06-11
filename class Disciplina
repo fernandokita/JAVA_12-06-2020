@@ -1,0 +1,22 @@
+package unicesumar.segundoBimestre;
+
+public class Disciplina{
+
+	private String nomeDisciplina;
+	
+	public Disciplina(String nomeDisciplina) { 
+		
+		this.nomeDisciplina = nomeDisciplina;
+	}
+	
+	// Conforme os bimestres e anos se passam, as disciplinas vão mudando...
+	public void setNomeDisciplina(String nomeDisciplina) {
+		
+		this.nomeDisciplina = nomeDisciplina;
+	}
+	
+	public String getNomeDisciplina(){
+		
+		return this.nomeDisciplina;
+	}
+}
