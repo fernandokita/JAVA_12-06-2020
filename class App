@@ -1,0 +1,110 @@
+package unicesumar.segundoBimestre;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		// - Uma associação 1 para 0..1 bidirecional;
+
+		Aluno Fernando = new Aluno("Fernando Kitakawa", 1921549 - 2);
+
+		Boleto boletoJunho = new Boleto(450.00, Fernando);
+		
+		System.out.println("--------------------------------");
+
+		System.out.println("\n O aluno :" + Fernando.getAluno() + "\n portador do RA :" + Fernando.getRA());
+		System.out.println("\n Está com o boleto de :" + Fernando.getBoleto());
+
+		System.out.println("--------------------------------");
+		
+		// -------------------------------------------------------------------
+		
+		
+		// - Uma associação 1 para 1..* unidirecional;
+		
+		Disciplina disciplinaI = new Disciplina("Programação I");
+		Disciplina disciplinaII = new Disciplina("Engenharia de Software I");
+		Disciplina disciplinaIII = new Disciplina("Engenharia de Software II");
+		Disciplina disciplinaIV = new Disciplina("Design Thinking");
+		Disciplina disciplinaV = new Disciplina("Estrutura de Dados");
+		Disciplina disciplinaVI = new Disciplina("Banco de Dados I");
+		Disciplina disciplinaVII = new Disciplina("Banco de Dados II");
+		Disciplina disciplinaVIII = new Disciplina("Projeto de Sistema");
+		
+		Professor Arthur = new Professor("Arthur Zavadski", disciplinaVIII);
+		Professor Nelson = new Professor("Nelson Tenorio", disciplinaIV);
+		Professor Marcelo = new Professor("Marcello Bonfim", disciplinaV);
+		Professor Aparecido = new Professor("Aparecido Vilela Junior", disciplinaVII);
+		
+		Arthur.addDisciplina(disciplinaI);
+		Arthur.addDisciplina(disciplinaVIII);
+		Arthur.addDisciplina(disciplinaVI);
+		
+		Nelson.addDisciplina(disciplinaII);
+		Nelson.addDisciplina(disciplinaIII);
+		Nelson.addDisciplina(disciplinaIV);
+		
+		Marcelo.addDisciplina(disciplinaV);
+		
+		Aparecido.addDisciplina(disciplinaVI);
+		Aparecido.addDisciplina(disciplinaVII);
+		
+		for(Professor p: d.getDisciplina() ) {
+
+			System.out.println("\n Professor :" + Arthur.getProfessor() + "colabora com as materias :" + p.getDisciplina());
+			System.out.println("\n Professor :" + Nelson.getProfessor() + "colabora com as materias :" + p.getDisciplina());
+			System.out.println("\n Professor :" + Marcelo.getProfessor() + "colabora com as materias :" + p.getDisciplina());
+			System.out.println("\n Professor :" + Aparecido.getProfessor() + "colabora com as materias :" + p.getDisciplina());
+	
+		}
+		// ----------------------------------------------------------------------- 
+		
+		
+		// - Uma associação 0..n para 0..n bidirecional;
+		Curso cursoTI_a = new Curso("Análise e Desenvolvimento de Sistemas");
+		Curso cursoTI_b = new Curso("Ciência da Computação");
+		Curso cursoTI_c = new Curso("Engenharia de Software");
+		Curso cursoTI_d = new Curso("Informática");
+		Curso cursoTI_e = new Curso("Redes de Computadores");
+		
+		Arthur.addCursoC(cursoTI_a);
+		Arthur.addCursoC(cursoTI_c);
+		Arthur.addCursoC(cursoTI_d);
+		
+		Nelson.addCursoC(cursoTI_a);
+		Nelson.addCursoC(cursoTI_b);
+		Nelson.addCursoC(cursoTI_d);
+		
+		Marcelo.addCursoC(cursoTI_a);
+		Marcelo.addCursoC(cursoTI_b);
+		Marcelo.addCursoC(cursoTI_d);
+		
+		Aparecido.addCursoC(cursoTI_a);
+		Aparecido.addCursoC(cursoTI_c);
+		Aparecido.addCursoC(cursoTI_e);
+		
+		// Professor para Curso..
+		
+		for(Professor p: d.getCursoC() ) {
+
+			System.out.println("\n Professor :" + Arthur.getProfessor() + "ministra os seguintes cursos :" + p.getCursoC());
+			System.out.println("\n Professor :" + Nelson.getProfessor() + "ministra os seguintes cursos :" + p.getCursoC());
+			System.out.println("\n Professor :" + Marcelo.getProfessor() + "ministra os seguintes cursos :" + p.getCursoC());
+			System.out.println("\n Professor :" + Aparecido.getProfessor() + "ministra os seguintes cursos :" + p.getCursoC());
+	
+		}
+		
+		
+		// Curso para Professor..
+		for(Curso c : d.getProfessorC ) {
+
+			System.out.println("\n Curso :" + cursoTI_a.getNomeCurso() + "é ministrado pelos professores \n :" + c.getProfessorC());
+			System.out.println("\n Curso :" + cursoTI_b.getNomeCurso() + "é ministrado pelos professores \n :" + c.getProfessorC());
+			System.out.println("\n Curso :" + cursoTI_c.getNomeCurso() + "é ministrado pelos professores \n :" + c.getProfessorC());
+			System.out.println("\n Curso :" + cursoTI_d.getNomeCurso() + "é ministrado pelos professores \n :" + c.getProfessorC());
+			System.out.println("\n Curso :" + cursoTI_e.getNomeCurso() + "é ministrado pelos professores \n :" + c.getProfessorC());
+	
+		}
+		
+	}
+}
